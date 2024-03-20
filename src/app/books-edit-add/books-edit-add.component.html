@@ -1,0 +1,37 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <label>
+    Название:
+    <input type="text" formControlName="name">
+  </label>
+  <label>
+    Автор:
+    <input type="text" formControlName="author">
+  </label>
+  <label>
+    Жанр:
+    <select formControlName="genre">
+      <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+    </select>
+  </label>
+  <label>
+    Тип обложки:
+    <select formControlName="cover_type">
+      <option *ngFor="let coverType of coverTypes" [value]="coverType">{{ coverType }}</option>
+    </select>
+  </label>
+  <label>
+    Количество:
+    <input type="number" formControlName="amount">
+  </label>
+  <label>
+    Цена:
+    <input type="number" formControlName="price">
+  </label>
+  <label>
+    Целевое назначение:
+    <select formControlName="purpose">
+      <option *ngFor="let purpose of purposes" [value]="purpose">{{ purpose }}</option>
+    </select>
+  </label>
+  <button type="submit">Сохранить</button>
+</form>
