@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 //реализует интерфейс OnInit
 export class BooksEditAddComponent implements OnInit {
 //
-  genres: string[] = ['Фантастика', 'Детектив', 'Роман', 'Ужасы'];
+  genres: string[] = ['Фантастика', 'Детектив', 'Роман', 'Ужасы', 'Триллер'];
   coverTypes: string[] = ['Мягкая', 'Твердая'];
   purposes: string[] = ['Учебное', 'Художественное'];
 
