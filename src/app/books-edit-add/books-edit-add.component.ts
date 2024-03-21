@@ -1,10 +1,11 @@
 import { Component, OnInit  } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-books-edit-add',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './books-edit-add.component.html',
   styleUrl: './books-edit-add.component.css'
 })
