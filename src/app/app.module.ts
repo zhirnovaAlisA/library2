@@ -1,19 +1,24 @@
 //абсолютно все компоненты и модули, которые присутствуют в проекте
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
-import routeConfig from './app.routes'; //добавлено
-import { RouterModule, Routes } from '@angular/router'; //добавлено
+// import { AppComponent } from './app.component';
+import {AppRoutesModule} from './app.routes'; //добавлено
+import { RouterModule, RouterOutlet,   RouterLink, RouterLinkActive} from '@angular/router';
+import { BooksShowComponent } from './books-show/books-show.component';
+import { BooksEditAddComponent } from './books-edit-add/books-edit-add.component';
 
 @NgModule({
   declarations: [ //все компоненты
-    AppComponent
+    // AppComponent, 
   ],
   imports: [ //все модули
     BrowserModule,
-    RouterModule.forRoot(routeConfig), //добавлено, указание всех URL-адресов, которые мы отслеживаем(переменная со всеми урлами из рутс)
+    AppRoutesModule,
+    RouterModule, RouterOutlet, RouterLink, RouterLinkActive, BooksShowComponent, BooksEditAddComponent
+    // RouterModule.forRoot(routeConfig), //добавлено, указание всех URL-адресов, которые мы отслеживаем(переменная со всеми урлами из рутс)
   ],
   providers: [],
-  bootstrap: [AppComponent]
+//   bootstrap: [AppComponent],
 })
 export class AppModule { }
+
