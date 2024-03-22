@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { BooksShowComponent } from './books-show/books-show.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-root', //селектор, который в index.html, мы отрисовываем именно этот компонент
   // templateUrl: './app.component.html',
   // imports: [
   //   // BooksShowComponent,
@@ -20,6 +20,7 @@ import { BooksShowComponent } from './books-show/books-show.component';
 // template: `<h1>Hello world!</h1>`,
 })
 export class AppComponent {
+  //здесь указываются те переменные и те данные, которые передаются в html(не только), там есть переменная {{ title }}
   title = 'library';
 }
 

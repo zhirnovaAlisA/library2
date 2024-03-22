@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-books-edit-add',
+  selector: 'app-books-edit-add', //его потом можно выводить в html
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './books-edit-add.component.html',
@@ -13,7 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 //реализует интерфейс OnInit
 export class BooksEditAddComponent implements OnInit {
 //
-  genres: string[] = ['Фантастика', 'Детектив', 'Роман', 'Ужасы', 'Триллер'];
+  genres: string[] = ['Фантастика', 'Детектив', 'Роман', 'Ужасы', 'Триллер']; //после : идёт тип данных который будет использован, можно изначально не задавать значение, можно указать any(любое значение)
   coverTypes: string[] = ['Мягкая', 'Твердая'];
   purposes: string[] = ['Учебное', 'Художественное'];
 
@@ -21,6 +21,7 @@ export class BooksEditAddComponent implements OnInit {
   profileForm!: FormGroup;
 
   //принимает на вход FormBuilder
+  //запускается до создания компонента
   constructor(private fb: FormBuilder) { }
 
 //ngOnInit будет вызываться при инициализации компонента
