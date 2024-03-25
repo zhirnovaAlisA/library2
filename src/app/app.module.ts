@@ -7,18 +7,20 @@ import { RouterModule, RouterOutlet,   RouterLink, RouterLinkActive} from '@angu
 import { BooksShowComponent } from './books-show/books-show.component';
 import { BooksEditAddComponent } from './books-edit-add/books-edit-add.component';
 
-@NgModule({
-  declarations: [ //все компоненты
-    AppComponent, 
-  ],
-  imports: [ //все модули
-    BrowserModule,
-    AppRoutesModule,
-    // RouterModule, RouterOutlet, RouterLink, RouterLinkActive, BooksShowComponent, BooksEditAddComponent
-    // RouterModule.forRoot(routeConfig), //добавлено, указание всех URL-адресов, которые мы отслеживаем(переменная со всеми урлами из рутс)
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
-})
-export class AppModule { }
+// @NgModule({
+//   declarations: [ //все компоненты
+//     AppComponent, 
+//   ],
+//   imports: [ //все модули
+//     BrowserModule,
+//     RouterOutlet,
+//     RouterModule,
+//     AppRoutesModule,
+//     // RouterModule, RouterOutlet, RouterLink, RouterLinkActive, BooksShowComponent, BooksEditAddComponent
+//     // RouterModule.forRoot(routeConfig), //добавлено, указание всех URL-адресов, которые мы отслеживаем(переменная со всеми урлами из рутс)
+//   ],
+//   providers: [],
+//   bootstrap: [AppComponent],
+// })
+// export class AppModule { }
 

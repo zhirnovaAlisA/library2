@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { Book } from '../models/book.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-books-show',
   standalone: true,
-  imports: [RouterLink, RouterOutlet],
+  imports: [CommonModule, RouterLink, RouterOutlet],
   templateUrl: './books-show.component.html',
   styleUrl: './books-show.component.css'
 })
