@@ -11,11 +11,11 @@ import { CommonModule } from '@angular/common';
   styleUrl: './books-show.component.css'
 })
 export class BooksShowComponent {
-  books: Book[] = [
-    { id: 1, title: 'Война и мир', author: 'Толстой' },
-    { id: 2, title: 'Мастер и Маргарита', author: 'Булгаков' },
-  ];
-  deleteBook(id: number): void {
-    this.books = this.books.filter(book => book.id !== id);
-  }
+  // books: Book[] = [
+  //   { id: 1, title: 'Война и мир', author: 'Толстой', genre: 'Роман', cover_type: 'Мягкая', amount: 4, price: 799, purpose: 'Отдых'},
+  //   { id: 2, title: 'Мастер и Маргарита', author: 'Булгаков', genre: 'Роман', cover_type: 'Твёрдая', amount: 6, price: 1499, purpose: 'Образование'},
+  // ];
+  // deleteBook(id: number): void {
+  //   this.books = this.books.filter(book => book.id !== id);
+  // }
 }

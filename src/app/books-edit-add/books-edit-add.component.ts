@@ -1,31 +1,50 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { BookService } from '../services/book.service';
+import { Book } from '../models/book.model';
 
 @Component({
-  selector: 'app-books-edit-add', //его потом можно выводить в html
-  standalone: true,
-  imports: [ReactiveFormsModule],
+  selector: 'app-books-edit-add',
   templateUrl: './books-edit-add.component.html',
-  styleUrl: './books-edit-add.component.css'
+  styleUrls: ['./books-edit-add.component.css']
 })
 
-//реализует интерфейс OnInit
+//свойство, ! показывает, что оно будет инициализировано позже
 export class BooksEditAddComponent implements OnInit {
-//
-  genres: string[] = ['Фантастика', 'Детектив', 'Роман', 'Ужасы', 'Триллер']; //после : идёт тип данных который будет использован, можно изначально не задавать значение, можно указать any(любое значение)
-  coverTypes: string[] = ['Мягкая', 'Твердая'];
-  purposes: string[] = ['Учебное', 'Художественное'];
-
-  //свойство, ! показывает, что оно будет инициализировано позже
   profileForm!: FormGroup;
+  bookId!: number;
 
   //принимает на вход FormBuilder
   //запускается до создания компонента
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private route: ActivatedRoute,
+    private fb: FormBuilder,
+    private bookService: BookService
+  ) { }
 
-//ngOnInit будет вызываться при инициализации компонента
+  //реализует интерфейс OnInit
+  ////ngOnInit будет вызываться при инициализации компонента
   ngOnInit(): void {
+    const idParam = this.route.snapshot.paramMap.get('id');
+    if (idParam) {
+      this.bookId = +idParam;
+      this.loadBook(this.bookId);
+    } 
+    this.initForm();
+  }
+
+  loadBook(id: number): void {
+    if (this.bookService) {
+      const book = this.bookService.getBookById(id);
+      if (book) {
+        this.profileForm.patchValue(book);
+      }
+    }
+  }
+  
+  
+  initForm(): void {
     this.profileForm = this.fb.group({
       name: [''],
       author: [''],
@@ -36,7 +55,10 @@ export class BooksEditAddComponent implements OnInit {
       purpose: ['']
     });
   }
+
   onSubmit(): void {
-    //будет метод отправки 
+    // Обработка отправки формы
   }
 }
+
+

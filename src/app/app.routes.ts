@@ -24,17 +24,3 @@ const routeConfig: Routes = [
 
   export class AppRoutesModule { };
 
-//   export default routeConfig;
-
-// export const routes: Routes = [
-//     { path: '', component: BooksShowComponent, title: 'Главная' }, // Главная страница
-//     { path: 'edit-book/:id', component: BooksEditAddComponent, title: 'Редактирование' } // Страница редактирования с параметром id
-// ];
-
-// @NgModule({ //нашла такую часть кода, не уверена, что оно нужно
-//     imports: [RouterModule.forRoot(routes)],
-//     exports: [RouterModule]
-//   })
-
-// export class AppRoutingModule { };
-// export const appRoutes = routes;

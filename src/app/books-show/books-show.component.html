@@ -2,14 +2,25 @@
     <tr>
       <th>Название</th>
       <th>Автор</th>
+      <th>Жанр</th>
+      <th>Обложка</th>
+      <th>Количество</th>
+      <th>Цена</th>
+      <th>предназначение</th>
       <th>Действия</th>
     </tr>
     <tr *ngFor="let book of books">
       <td>{{ book.title }}</td>
       <td>{{ book.author }}</td>
+      <td>{{ book.genre }}</td>
+      <td>{{ book.cover_type }}</td>
+      <td>{{ book.amount }}</td>
+      <td>{{ book.price }}</td>
+      <td>{{ book.purpose }}</td>
       <td>
         <button (click)="deleteBook(book.id)">Удалить</button>
-        <button [routerLink]="['/edit-book', book.id]">Редактировать</button>
+        <a [routerLink]="['/edit-book', book.id]">Редактировать</a>
+        <!-- <button (click)="[routerLink]="['/edit-book', book.id]">Редактировать</button> -->
       </td>
     </tr>
   </table>
