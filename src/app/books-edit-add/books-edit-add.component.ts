@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, FormControl,  ReactiveFormsModule  } from '@angular/forms';
 import { BookService } from '../services/book.service';
 import { Book } from '../models/book.model';
+import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
+
 
 @Component({
+  standalone: true,
   selector: 'app-books-edit-add',
   templateUrl: './books-edit-add.component.html',
-  styleUrls: ['./books-edit-add.component.css']
+  styleUrls: ['./books-edit-add.component.css'],
+  imports: [RouterModule, FormsModule,  ReactiveFormsModule ] //FormControl] //FormBuilder, FormGroup]
 })
 
 //свойство, ! показывает, что оно будет инициализировано позже
