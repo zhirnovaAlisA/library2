@@ -34,28 +34,12 @@ export class BooksEditAddComponent implements OnInit {
 
   //реализует интерфейс OnInit
   ////ngOnInit будет вызываться при инициализации компонента
-
-  // ngOnInit(): void {
-  //   const idParam = this.route.snapshot.paramMap.get('id');
-  //   if (idParam) {
-  //     this.bookId = +idParam;
-  //     this.loadBook(this.bookId);
-  //   } 
-  //   this.initForm();
-  // }
   ngOnInit(): void {
     this.initForm();
     this.loadBook();
   }
 
-  // loadBook(id: number): void {
-  //   if (this.bookService) {
-  //     const book = this.bookService.getBookById(id);
-  //     if (book) {
-  //       this.profileForm.patchValue(book);
-  //     }
-  //   }
-  // }
+
   loadBook(): void {
     const idParam = this.route.snapshot.paramMap.get('id');
     if (idParam) {
@@ -79,6 +63,7 @@ export class BooksEditAddComponent implements OnInit {
       purpose: ['']
     });
   }
+
 
   onSubmit(): void {
     // Обработка отправки формы

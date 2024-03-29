@@ -16,6 +16,7 @@ export class BookService {
 
   //все книги
   getBooks(): Book[] {
+    console.log(this.books);
     return this.books;
   }
 
@@ -26,7 +27,9 @@ export class BookService {
 
   //удаление книги
   deleteBook(id: number): void {
+    debugger;
     this.books = this.books.filter(book => book.id !== id);
+    console.log(this.books);
   }
 
   //добавление новой книги
