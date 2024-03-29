@@ -5,6 +5,9 @@ import { BookService } from '../services/book.service';
 import { Book } from '../models/book.model';
 import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { Validators } from '@angular/forms';
+
 
 
 @Component({
@@ -29,7 +32,8 @@ export class BooksEditAddComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private bookService: BookService
+    private bookService: BookService,
+    private router: Router
   ) { }
 
   //реализует интерфейс OnInit
@@ -54,20 +58,32 @@ export class BooksEditAddComponent implements OnInit {
   
   initForm(): void {
     this.profileForm = this.fb.group({
-      title: [''],
-      author: [''],
+      title: ['', Validators.required],
+      author: ['', Validators.required],
       genre: [''],
       cover_type: [''],
-      amount: [''],
-      price: [''],
+      amount: ['', [Validators.required, Validators.min(1)]], 
+      price: ['', [Validators.required, Validators.min(1)]],
       purpose: ['']
     });
   }
 
-
   onSubmit(): void {
-    // Обработка отправки формы
+    if (this.profileForm.valid) {
+      const editedBook: Book = this.profileForm.value;
+      const idParam = this.route.snapshot?.paramMap.get('id');
+      const id = idParam ? +idParam : null;
+      if (id === null || id > this.bookService.getMaxBookId()) {
+        this.bookService.addBook(editedBook); // Добавление новой книги
+      } else {
+        editedBook.id = id;
+        this.bookService.editBook(editedBook); // Редактирование существующей книги
+      }
+      this.router.navigate(['/']); // Переход на главную страницу
+    }
   }
+  
+  
 }
 
 

@@ -16,7 +16,6 @@ export class BookService {
 
   //все книги
   getBooks(): Book[] {
-    console.log(this.books);
     return this.books;
   }
 
@@ -27,14 +26,19 @@ export class BookService {
 
   //удаление книги
   deleteBook(id: number): void {
-    debugger;
     this.books = this.books.filter(book => book.id !== id);
-    console.log(this.books);
   }
 
   //добавление новой книги
   addBook(book: Book): void {
     this.books.push(book);
+  }
+
+  getMaxBookId(): number {
+    if (this.books.length === 0) {
+      return 0;
+    }
+    return Math.max(...this.books.map(book => book.id));
   }
 
   //если такой индекс был, книга обновляется 

@@ -1,4 +1,4 @@
-<a [routerLink]="['']">На главную</a>
+<a [routerLink]="['']" class = "redirect">На главную</a>
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
   <label>
     Название:
@@ -34,5 +34,11 @@
       <option *ngFor="let purpose of purposes" [value]="purpose">{{ purpose }}</option>
     </select>
   </label>
+  <div *ngIf="profileForm.get('amount')?.errors && profileForm.get('amount')?.touched" class="error-message">
+    Количество должно быть больше 0
+  </div>
+  <div *ngIf="profileForm.get('price')?.errors && profileForm.get('price')?.touched" class="error-message">
+    Цена должна быть больше 0
+  </div>
   <button type="submit">Сохранить</button>
 </form>

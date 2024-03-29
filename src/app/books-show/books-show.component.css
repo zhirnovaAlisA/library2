@@ -33,3 +33,8 @@ button, a {
 button:hover, a:hover {
   background-color: #cccccc;
 }
+
+.navigateButton {
+  display: block; 
+  margin: 20px auto; 
+}
